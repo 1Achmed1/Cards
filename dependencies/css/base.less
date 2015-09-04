@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic&subset=latin,latin-ext);
+
 @red: #F44336;
 @pink: #E91E63;
 @purple: #9C27B0;
@@ -95,7 +97,7 @@ body,
 .card {
 	position: relative;
 	display: block;
-	padding: 1rem;
+	padding: 16px;
 	border-radius: 3px;
 	font-size: 16px;
 	background-color: #FFF;
@@ -113,28 +115,76 @@ body,
 		transform: translateY(-3px);
 	}
 
-	div[3way] {
-		display: inline-block;
-		width: 31.4%;
-		margin-left: auto;
-		margin-right: auto;
+	&[hover='false'] {
+		.BoxShadowHelper(2);
+		-webkit-transform: translateY(-3px);
+		-moz-transform: translateY(-3px);
+		transform: translateY(-3px);
+	}
 
-		.imgcontainer {
-			height: 175px;
-			width: 100%;
-			overflow: hidden;
-			line-height: 50px;
+	&.footer {
+		text-align: center;
+		cursor: pointer;
 
-			&:before {
+		i {
+			color: @dark-text-secondary;
+		}
+
+		span {
+			margin-left: 5px;
+			margin-right: 5px;
+			color: @dark-text-secondary;
+		}
+
+		hr {
+			display: none;
+		}
+
+		.content {
+			display: none;
+			text-align: left;
+			margin-top: 16px;
+			color: @dark-text;
+			font-weight: 400;
+		}
+
+		&[toggled='true'] {
+			hr {
+				border: 0;
+				height: 0;
+				border-top: 1px solid @dark-divider;
+				border-bottom: 1px solid @dark-divider;
+				display: block;
 			}
 
-			img {
-				width: 100%;
-    		display: inline-block;
-    		vertical-align: middle;
+			.content {
+				display: block;
 			}
 		}
 	}
+
+	// div[3way] {
+	// 	display: inline-block;
+	// 	width: 31.4%;
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	//
+	// 	.imgcontainer {
+	// 		height: 175px;
+	// 		width: 100%;
+	// 		overflow: hidden;
+	// 		line-height: 50px;
+	//
+	// 		&:before {
+	// 		}
+	//
+	// 		img {
+	// 			width: 100%;
+  //   		display: inline-block;
+  //   		vertical-align: middle;
+	// 		}
+	// 	}
+	// }
 
 	&[nohover] {
 		transition: all 0ms;
@@ -154,7 +204,7 @@ body,
 		padding: 0;
 
 		.title {
-			padding: 1rem;
+			padding: 16px;
 			border-bottom: 1px solid @dark-divider;
 
 			&[colored] {
@@ -287,7 +337,7 @@ body,
 		}
 
 		.content {
-			margin: 1rem;
+			margin: 16px;
 		}
 
 		&[nohover] {
@@ -308,6 +358,17 @@ body,
 	background-color: @header-color;
 	color: @light-text;
 	margin-bottom: 25px;
+	height: 59px;
+	padding: 16px;
+	margin-top: 13px;
+	margin-left: 13px;
+	margin-right: 13px;
+	margin-bottom: 30px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 1000;
 
 	&[alt-header] {
 		margin-top: 133px;
@@ -315,6 +376,30 @@ body,
 
 	.left-part {
 		float: left;
+		margin: 0px;
+		margin-top: 11px;
+	}
+
+	.icon-open {
+		float: left;
+		font-size: 24px;
+		cursor: pointer;
+		font-family: 'Roboto', sans-serif;
+		padding: 13px;
+		text-decoration: none;
+		text-transform: uppercase;
+		height: 30px;
+		width: 30px;
+
+		.darken-icon {
+			border-radius: 50%;
+			height: 100%;
+			width: 100%;
+
+			i {
+				margin-left: 4.5px;
+			}
+		}
 	}
 
 	.header-subtitle {
@@ -329,55 +414,148 @@ body,
 	  font-size: 24px;
 	  float: right;
 	  margin: 15px;
+		margin-bottom: 0px;
+		margin-right: 10px;
 
 		li {
-			border-right: 2px solid @light-divider;
 			display: inline;
-			padding: 5px;
+			padding-top: 5px;
+			padding-left: 10px;
 			padding-right: 10px;
 			transition: all 200ms;
+			margin: 0px;
+			padding-bottom: 28px;
+			cursor: pointer;
 
-			&[last] {
-				border-right: 0px solid @light-divider;
-				display: inline;
-				padding: 5px;
-				padding-right: 7px;
+			&[active] {
+				border-bottom: 3px solid @light-text;
 			}
 
 			&:hover {
 				background-color: @light-divider;
+
+				a {
+					color: @light-text;
+				}
 			}
 
 			a {
 				text-decoration: none;
 				color: @light-text-secondary;
 				transition: all 200ms;
-
-				&:hover {
-					text-decoration: none;
-					color: @light-text;
-				}
 			}
 		}
 	}
 }
 
-.status-bar {
-	height: 25px;
-	background-color: #f57c00;
-	.BoxShadowHelper(2);
+.header-scrolled {
+	font-size: 32px;
+	overflow: hidden;
+	background-color: @header-color;
+	color: @light-text;
+	height: 55px;
+	padding: 0px;
+	margin: 0px;
+	border-radius: 0px;
+	padding-left: 10px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 1000;
 
-	.time {
-		margin: 0;
-		text-align: center;
-		font-size: 14px;
-		font-weight: 500;
-		line-height: 25px;
+	&[alt-header] {
+		margin-top: 133px;
+	}
+
+	.left-part {
+		float: left;
+
+		div {
+			padding-top: 10px;
+
+			img {
+				height: 38px;
+				width: 38px;
+			}
+		}
+
+		span {
+		}
+	}
+
+	.icon-open {
+		float: left;
+		font-size: 24px;
+		cursor: pointer;
+		font-family: 'Roboto', sans-serif;
+		padding: 13px;
+		text-decoration: none;
+		text-transform: uppercase;
+		height: 30px;
+		width: 30px;
+
+		.darken-icon {
+			border-radius: 50%;
+			height: 100%;
+			width: 100%;
+
+			i {
+				margin-left: 4.5px;
+			}
+		}
+	}
+
+	.header-subtitle {
+		font-size: 16px;
+		color: @light-text-secondary;
+	}
+
+	ul {
+		list-style: none;
+		text-decoration: none;
+	  align-content: flex-end;
+	  font-size: 24px;
+	  float: right;
+	  margin: 0px;
+		margin-bottom: 0px;
+		margin-right: 10px;
+		margin-top: 13px;
+
+		li {
+			display: inline;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			transition: all 200ms;
+			margin: 0px;
+			padding-bottom: 10px;
+			cursor: pointer;
+			margin-top: 5px;
+
+			&[active] {
+				border-bottom: 3px solid @light-text;
+			}
+
+			&:hover {
+				background-color: @light-divider;
+
+				a {
+					color: @light-text;
+				}
+			}
+
+			a {
+				text-decoration: none;
+				color: @light-text-secondary;
+				transition: all 200ms;
+			}
+		}
 	}
 }
 
 .alt-header {
-	height: 115px;
+	height: 119px;
 	background-color: @status-bar-color;
 	position: fixed;
 	left: 0;
@@ -391,14 +569,15 @@ body,
 
 	span {
 		color: #F1F1F1;
-		margin-left: 3rem;
+		margin-left: 48px;
 		font-size: 32px;
 		line-height: 120px;
 	}
 
 	img {
-		margin-left: 1rem;
-		margin-top: 1rem;
+		margin-left: 18px;
+		margin-top: 18px;
+		margin-bottom: 18px;
 		color: @light-text;
 		height: 82px;
 	}
@@ -426,8 +605,56 @@ body,
 	padding: 0px;
 	z-index: 5;
 	position: fixed;
-	left: 0rem;
+	left: 0px;
+	top: 120px;
+
+	.vertical-nav {
+		width: 200px;
+
+		ul {
+			list-style: none;
+			padding: 0px;
+			padding-top: 0px;
+			margin: 0px;
+			border-radius: 3px;
+
+			li {
+				font-weight: 500;
+				transition: all 250ms;
+
+				&:hover {
+					background-color: #F1F1F1;
+				}
+
+				&[active] {
+					border-left: 3px solid @header-color;
+				}
+
+				a {
+					display: block;
+					color: rgba(33,33,33,0.75);
+					text-decoration: none;
+					font-size: 20px;
+					padding: 16px;
+				}
+			}
+		}
+	}
+}
+
+.sliding-nav {
+	float: left;
+	padding: 0px;
+	z-index: 1000;
+	position: fixed;
+	left: -285px;
 	top: 115px;
+	display: block;
+	.BoxShadowHelper(3);
+
+	&:hover {
+		.BoxShadowHelper(4);
+	}
 
 	.vertical-nav {
 		width: 200px;
@@ -452,7 +679,7 @@ body,
 					color: rgba(33,33,33,0.75);
 					text-decoration: none;
 					font-size: 20px;
-					padding: 1rem;
+					padding: 16px;
 				}
 			}
 		}
@@ -471,19 +698,21 @@ pre {
 	background-color: #F1F1F1;
 	color: @red;
 	border: 1px solid #D4D4D4;
-	padding: 1rem;
+	padding: 16px;
+	font-family: 'Roboto Mono', monospace;
 
 	&.code {
 		padding: 0;
 		border: none;
 		background-color: rgb(30, 50, 56);
 		border-radius: 2px;
+		font-family: 'Roboto Mono', monospace;
 
 		code {
 			display: block;
 			overflow-x: auto;
 			color: @red;
-			padding: 1rem;
+			padding: 16px;
 			background-color: rgb(30, 50, 56);
 			border: none;
 			border-radius: 2px;
@@ -512,10 +741,10 @@ pre {
 textarea {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	padding: 1rem;
+	padding: 16px;
 
 	&[code] {
-		font-family: monospace;
+		font-family: 'Roboto Mono', monospace;
 		resize: none;
 		outline: none;
 		border-radius: 1px;
@@ -534,11 +763,11 @@ input {
 		background-color: @header-color;
 		border: none;
 		font-size: 16px;
-		padding: 0.75rem 1rem;
+		padding: 12px 16px;
 		border-radius: 2px;
 		text-transform: uppercase;
 		transition: all 250ms;
-		margin: 1rem;
+		margin: 16px;
 
 		&:hover {
 			.BoxShadowHelper(2);
@@ -567,8 +796,8 @@ input {
 	position: fixed;
 	height: 50px;
 	width: 51px;
-	right: 1rem;
-	bottom: 1rem;
+	right: 16px;
+	bottom: 16px;
 	.BoxShadowHelper(2);
 	border-radius: 50%;
 	background-color: @header-color;
@@ -607,6 +836,8 @@ input {
 	overflow-x: scroll;
 
 	thead {
+		text-align: right;
+
 		tr {
 			border-bottom: 1px solid @dark-divider;
 			z-index: 10;
@@ -614,30 +845,41 @@ input {
 			th {
 				color: @dark-text-secondary;
 				z-index: 10;
-				padding: 1rem;
-				padding-right: 3rem;
+				padding: 16px;
+				padding-right: 32px;
 
 				&[last] {
-					padding-right: 1rem;
+					padding-right: 16px;
+				}
+
+				&[first] {
+					text-align: left;
 				}
 			}
 		}
 	}
 
 	tbody {
+		text-align: right;
+
 		tr {
 			border-bottom: 1px solid @dark-divider;
 			z-index: 10;
 
 			td {
 				z-index: 10;
-				padding: 1rem;
-				padding-right: 3rem;
+				padding: 16px;
+				padding-right: 32px;
 
-				&[last] {
-					padding-right: 0rem;
+				&[first] {
+					text-align: left;
 				}
 			}
 		}
 	}
+}
+
+a {
+	text-decoration: none;
+	color: @blue;
 }

@@ -8,24 +8,25 @@
 	<!-- imports -->
 	<link rel="stylesheet/less" type="text/css" href="dependencies/css/base.less">
 	<link href="http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic,700,700italic,300italic" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- less -->
 	<script src="less.js" type="text/javascript"></script>
-	<script type="text/javascript" src="dependencies/js/PxLoader.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </head>
 <body>
 
 	<div class="container">
 	  <div class="alt-header">
-			<img src="dependencies/img/logo-placeholder.png" alt="Logo here">
 	  </div>
 
     <div class="card left-nav">
         <nav class="vertical-nav">
           <ul>
             <li><a href="index">Horizontal Navigation</a></li>
-						<li><a href="javascript:void(0)">Vertical Navigation</a></li>
+						<li active><a href="javascript:void(0)">Vertical Navigation</a></li>
 						<li><a href="color">Color</a></li>
 						<li><a href="tables">Tables</a></li>
           </ul>
@@ -33,11 +34,11 @@
     </div>
 
     <div class="content" style="margin-left: 215px;">
-		  <div class="card header">
-			   <p>Cards</p><span class="header-subtitle"><p>by Andrew Ward</p></span>
-		  </div>
+			<div class="card header" hover="false">
+				<div class="left-part"><span>Cards<span></div>
+			</div>
 
-		  <div class="card">
+		  <div class="card" style="margin-top: 133px;">
 			   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt eleifend mattis. Vestibulum vestibulum eu ligula et varius. Nulla in dictum odio, eu auctor lorem. Vivamus dapibus elementum diam. Cras vel porta lorem. Nullam rhoncus odio vitae dictum condimentum. Maecenas eu elementum justo. Curabitur in eros justo. Nunc eget vulputate justo. Donec gravida nec velit quis bibendum. Maecenas ornare eros at enim auctor, nec vestibulum elit congue. Donec ac volutpat massa. Nunc quam erat, ultricies in elit at, euismod vulputate nunc. In sit amet interdum augue.</p>
 
 			   <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Duis sed tempus arcu, eget blandit quam. Nullam nec molestie elit. In vel ligula tincidunt dui consectetur maximus tempor id elit. Quisque auctor malesuada gravida. Morbi vulputate, orci sed volutpat varius, lectus metus pretium urna, porttitor maximus ligula odio id urna. Aliquam aliquet metus at diam vulputate, ac efficitur ante lobortis. Vestibulum ac congue velit, at sodales est. Nam scelerisque nibh lobortis, pharetra turpis a, hendrerit nunc. Maecenas sed pharetra sem. Proin congue lacus viverra massa cursus aliquet. Sed vel eleifend dolor. Morbi fermentum tristique imperdiet.</p>
@@ -115,6 +116,13 @@
 					<p>The <code>nohover</code> attribute can be used with <code>titled</code> <code>div</code>'s, as well.</p>
 				</div>
 			</div>
+			<div class="card footer" id="footer">
+				<i class="fa fa-caret-down" id="footerArrow"></i><span id="footerspan">Click to Open the Footer</span>
+				<hr>
+				<div class="content">
+					<span>"Cards" developed by Andrew Ward. Hosted and open-sourced on GitHub. Made in ATOM using LESS and jQuery.</span>
+				</div>
+			</div>
     </div>
 
 		<div class="fab-container">
@@ -122,5 +130,6 @@
     </div>
 	</div>
 
+<script src="base.js" type="text/javascript"></script>
 </body>
 </html>

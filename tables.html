@@ -8,16 +8,19 @@
 	<!-- imports -->
 	<link rel="stylesheet/less" type="text/css" href="dependencies/css/base.less">
 	<link href="http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic,700,700italic,300italic" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- less -->
 	<script src="less.js" type="text/javascript"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </head>
 <body>
 
 	<div class="container">
 	  <div class="alt-header">
-			<img src="dependencies/img/logo-placeholder.png" alt="Logo here">
+			<img src="dependencies/img/logo.png" alt="Logo here">
 	  </div>
 
     <div class="card left-nav">
@@ -26,16 +29,16 @@
             <li><a href="index">Horizontal Navigation</a></li>
 						<li><a href="nav-drawer">Vertical Navigation</a></li>
 						<li><a href="color">Color</a></li>
-						<li><a href="javascript:void(0)">Tables</a></li>
+						<li active><a href="javascript:void(0)">Tables</a></li>
           </ul>
         </nav>
     </div>
 
     <div class="content" style="margin-left: 215px;">
-		  <div class="card header">
-			   <p>Cards</p><span class="header-subtitle"><p>by Andrew Ward</p></span>
-		  </div>
-      <div class="card" titled>
+			<div class="card header" hover="false">
+				<div class="left-part"><span>Cards<span></div>
+			</div>
+      <div class="card" style="margin-top: 135px;" titled>
       	<div class="title">
       		<span>Tables</span>
       	</div>
@@ -43,7 +46,7 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th>Dessert (100g serving)</th>
+								<th first>Dessert (100g serving)</th>
 								<th>Calories</th>
 								<th>Fat (g)</th>
 								<th>Carbs (g)</th>
@@ -55,7 +58,7 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>Frozen Yogurt</td>
+								<td first>Frozen Yogurt</td>
 								<td>159</td>
 								<td>6.0</td>
 								<td>24</td>
@@ -65,7 +68,7 @@
 								<td>1%</td>
 							</tr>
 							<tr>
-								<td>Ice Cream Sandwich</td>
+								<td first>Ice Cream Sandwich</td>
 								<td>237</td>
 								<td>9.0</td>
 								<td>37</td>
@@ -75,7 +78,7 @@
 								<td>1%</td>
 							</tr>
 							<tr>
-								<td>Eclair</td>
+								<td first>Eclair</td>
 								<td>262</td>
 								<td>16.0</td>
 								<td>24</td>
@@ -85,7 +88,7 @@
 								<td>7%</td>
 							</tr>
 							<tr>
-								<td>Cupcake</td>
+								<td first>Cupcake</td>
 								<td>305</td>
 								<td>3.7</td>
 								<td>67</td>
@@ -95,7 +98,7 @@
 								<td>8%</td>
 							</tr>
 							<tr>
-								<td>Gingerbread</td>
+								<td first first>Gingerbread</td>
 								<td>356</td>
 								<td>16.0</td>
 								<td>49</td>
@@ -105,7 +108,7 @@
 								<td>16%</td>
 							</tr>
 							<tr>
-								<td>Jelly Bean</td>
+								<td first>Jelly Bean</td>
 								<td>375</td>
 								<td>0.0</td>
 								<td>94</td>
@@ -115,7 +118,7 @@
 								<td>0%</td>
 							</tr>
 							<tr>
-								<td>Lollipop</td>
+								<td first first>Lollipop</td>
 								<td>392</td>
 								<td>0.2</td>
 								<td>98</td>
@@ -125,7 +128,7 @@
 								<td>2%</td>
 							</tr>
 							<tr>
-								<td>Honeycomb</td>
+								<td first>Honeycomb</td>
 								<td>408</td>
 								<td>3.2</td>
 								<td>87</td>
@@ -135,7 +138,7 @@
 								<td>45%</td>
 							</tr>
 							<tr>
-								<td>Donut</td>
+								<td first first>Donut</td>
 								<td>452</td>
 								<td>25.0</td>
 								<td>51</td>
@@ -145,7 +148,7 @@
 								<td>22%</td>
 							</tr>
 							<tr>
-								<td>KitKat</td>
+								<td first>KitKat</td>
 								<td>518</td>
 								<td>26.0</td>
 								<td>65</td>
@@ -158,6 +161,13 @@
 					</table>
       	</div>
       </div>
+			<div class="card footer" id="footer">
+				<i class="fa fa-caret-down" id="footerArrow"></i><span id="footerspan">Click to Open the Footer</span>
+				<hr>
+				<div class="content">
+					<span>"Cards" developed by Andrew Ward. Hosted and open-sourced on GitHub. Made in ATOM using LESS and jQuery.</span>
+				</div>
+			</div>
     </div>
 
 		<div class="fab-container">
@@ -165,5 +175,6 @@
     </div>
 	</div>
 
+<script src="base.js" type="text/javascript"></script>
 </body>
 </html>
