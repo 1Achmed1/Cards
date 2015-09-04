@@ -54,8 +54,11 @@ $(window).scroll(function() {
     if(scroll >= 30) {
       header.attr('class', 'card header-scrolled');
       subtitle.remove();
-      $("li[active]").css('padding-bottom', '7px');
       $(".left-part").removeAttr('style');
+
+      if(navigator.userAgent.indexOf('Mac OS X') != -1) {
+        $("li[active]").css('padding-bottom', '7px');
+      }
 
       if($(".headerImg").length) {
 
