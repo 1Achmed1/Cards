@@ -54,7 +54,7 @@ $(window).scroll(function() {
     if(scroll >= 30) {
       header.attr('class', 'card header-scrolled');
       subtitle.remove();
-      $("li[active]").removeAttr('style');
+      $("li[active]").css('padding-bottom', '7px');
       $(".left-part").removeAttr('style');
 
       if($(".headerImg").length) {
