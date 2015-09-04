@@ -19,6 +19,11 @@ var main = function() {
   $('.header-link-container4').click(function() {
     window.location.href = href4;
   });
+  
+  if(navigator.userAgent.indexOf('Mac OS X') != -1) {
+    $(".left-part").css('margin-top', '8px');
+    $(":li[active]").css('padding-bottom', '25px')
+  }
 }
 
 var footerToggle = function() {
