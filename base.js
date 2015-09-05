@@ -20,9 +20,9 @@ var main = function() {
     window.location.href = href4;
   });
 
-  if(navigator.userAgent.indexOf('Mac OS X') != -1) {
-    $(".left-part").css('margin-top', '8px');
-    $("li[active]").css('padding-bottom', '25px');
+  if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
+    $(".left-part").addClass('mac');
+    $("li[active]").addClass('mac');
   }
 }
 
@@ -59,10 +59,10 @@ $(window).scroll(function() {
     if(scroll >= 30) {
       header.attr('class', 'card header-scrolled');
       subtitle.remove();
-      $(".left-part").removeAttr('style');
 
-      if(navigator.userAgent.indexOf('Mac OS X') != -1) {
-        $("li[active]").css('padding-bottom', '7px');
+      if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
+        $(".left-part").removeClass('mac');
+        $("li[active]").addClass('mac');
       }
 
       if($(".headerImg").length) {
@@ -72,13 +72,10 @@ $(window).scroll(function() {
       }
     } else {
       header.attr('class', 'card header');
-      if(navigator.userAgent.indexOf('Mac OS X') != -1) {
-        $(".left-part").css('margin-top', '8px');
-        $("li[active]").css('padding-bottom', '25px');
+      if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
+        $(".left-part").addClass('mac');
+        $("li[active]").addClass('mac');
       }
-
-      $("li[active]").removeAttr('style');
-      $(".left-part").removeAttr('style');
 
       if($(".headerImg").length) {
         $(".headerImg").remove();
