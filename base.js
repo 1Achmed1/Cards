@@ -59,7 +59,6 @@ $(window).scroll(function() {
     if(scroll >= 30) {
       header.attr('class', 'card header-scrolled');
       subtitle.remove();
-      $("li[active]").removeAttr('style');
       $(".left-part").removeAttr('style');
 
       if(navigator.userAgent.indexOf('Mac OS X') != -1) {
@@ -76,10 +75,10 @@ $(window).scroll(function() {
       if(navigator.userAgent.indexOf('Mac OS X') != -1) {
         $(".left-part").css('margin-top', '8px');
         $("li[active]").css('padding-bottom', '25px');
+      } else {
+        $("li[active]").removeAttr('style');
+        $(".left-part").removeAttr('style');
       }
-
-      $("li[active]").removeAttr('style');
-      $(".left-part").removeAttr('style');
 
       if($(".headerImg").length) {
         $(".headerImg").remove();
