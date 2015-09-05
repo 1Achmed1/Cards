@@ -59,8 +59,11 @@ $(window).scroll(function() {
     if(scroll >= 30) {
       header.attr('class', 'card header-scrolled');
       subtitle.remove();
-      $("li[active]").css('padding-bottom', '7px');
       $(".left-part").removeAttr('style');
+
+      if(navigator.userAgent.indexOf('Mac OS X') != -1) {
+        $("li[active]").css('padding-bottom', '7px');
+      }
 
       if($(".headerImg").length) {
 
@@ -73,6 +76,9 @@ $(window).scroll(function() {
         $(".left-part").css('margin-top', '8px');
         $("li[active]").css('padding-bottom', '25px');
       }
+
+      $("li[active]").removeAttr('style');
+      $(".left-part").removeAttr('style');
 
       if($(".headerImg").length) {
         $(".headerImg").remove();
