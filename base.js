@@ -20,7 +20,7 @@ var main = function() {
     window.location.href = href4;
   });
 
-  if(navigator.userAgent.indexOf('Mac OS X') != -1) {
+  if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
     $(".left-part").css('margin-top', '8px');
     $("li[active]").css('padding-bottom', '25px');
   }
@@ -61,7 +61,7 @@ $(window).scroll(function() {
       subtitle.remove();
       $(".left-part").removeAttr('style');
 
-      if(navigator.userAgent.indexOf('Mac OS X') != -1) {
+      if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
         $("li[active]").css('padding-bottom', '7px');
       }
 
@@ -72,7 +72,7 @@ $(window).scroll(function() {
       }
     } else {
       header.attr('class', 'card header');
-      if(navigator.userAgent.indexOf('Mac OS X') != -1) {
+      if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
         $(".left-part").css('margin-top', '8px');
         $("li[active]").css('padding-bottom', '25px');
       } else {
