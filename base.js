@@ -70,6 +70,10 @@ $(window).scroll(function() {
       } else {
         $(".left-part").prepend('<div class="headerImg"><img src="dependencies/img/logo.png" alt="Logo here" height="40px"></div>');
       }
+
+      if($(".headerTitle").length) {
+        $(this).remove();
+      }
     } else {
       header.attr('class', 'card header');
       if(navigator.userAgent.toUpperCase().indexOf('MAC') >= 0) {
@@ -79,6 +83,12 @@ $(window).scroll(function() {
 
       if($(".headerImg").length) {
         $(".headerImg").remove();
+      }
+
+      if($(".headerTitle").length) {
+
+      } else {
+        $(".leftpart").prepend('<span class="headerTitle">Cards</span>');
       }
       // $(".left-part").append('<span class="header-subtitle"><p>by Andrew Ward</p></span>');
     }
