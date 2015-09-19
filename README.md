@@ -1,5 +1,3 @@
-![Build](https://travis-ci.org/1Achmed1/Cards.svg?branch=master)
-
 # Cards
 A CSS website design for Google's Material Design.
 
