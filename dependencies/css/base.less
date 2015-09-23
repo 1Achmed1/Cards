@@ -1,37 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic&subset=latin,latin-ext);
-
-@red: #F44336;
-@pink: #E91E63;
-@purple: #9C27B0;
-@deep-purple: #673AB7;
-@indigo: #3F51B5;
-@blue: #2196F3;
-@light-blue: #03A9F4;
-@cyan: #00BCD4;
-@teal: #009688;
-@green: #4CAF50;
-@light-green: #8BC34A;
-@lime: #CDDC39;
-@yellow: #FFEB3B;
-@amber: #FFC107;
-@orange: #FF9800;
-@deep-orange: #FF5722;
-@brown: #795548;
-@grey: #9E9E9E;
-@blue-grey: #607D8B;
-
-@light-text: rgba(255,255,255,1);
-@light-text-secondary: rgba(255,255,255,0.7);
-@light-text-disabled: rgba(255,255,255,0.3);
-@light-divider: rgba(255,255,255,0.12);
-
-@dark-text: rgba(0,0,0,0.87);
-@dark-text-secondary: rgba(0,0,0,0.54);
-@dark-text-disabled: rgba(0,0,0,0.26);
-@dark-divider: rgba(0,0,0,0.12);
-
-@header-color: @teal;
-@status-bar-color: #00796b;
+@import "vars.less";
+@import "colors.less";
 
 html {
 	height: 100%;
@@ -39,7 +8,7 @@ html {
 	margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
-	animation: fadein 1s;
+	animation: fadein 1s ease;
 }
 
 @keyframes fadein {
@@ -62,23 +31,17 @@ body {
 	margin: 5px;
 }
 
-::-webkit-scrollbar-track {
-	border-radius: 1px;
-	border-top: 1px solid @dark-divider;
-}
-
 ::-webkit-scrollbar-thumb {
-	border-radius: 1px;
-	background-color: @dark-text-disabled;
+	background-color: @header-color;
 	transition: all 200ms;
 
 	&:hover {
-		background-color: @dark-text-secondary;
+		background-color: @status-bar-color;
 	}
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-	background-color: @dark-divider;
+	background-color: @dark-text-disabled;
 }
 
 body,
@@ -98,7 +61,7 @@ body,
 	position: relative;
 	display: block;
 	padding: 16px;
-	border-radius: 3px;
+	border-radius: 2px;
 	font-size: 16px;
 	background-color: #FFF;
 	-webkit-transition: all 250ms;
@@ -150,6 +113,7 @@ body,
 
 		&[toggled='true'] {
 			hr {
+				margin-top: 16px;
 				border: 0;
 				height: 0;
 				border-top: 1px solid @dark-divider;
@@ -360,7 +324,7 @@ body,
 	margin-bottom: 25px;
 	height: 59px;
 	padding: 16px;
-	margin-top: 13px;
+	margin-top: 16px;
 	margin-left: 13px;
 	margin-right: 13px;
 	margin-bottom: 30px;
@@ -377,10 +341,14 @@ body,
 	.left-part {
 		float: left;
 		margin: 0px;
-		margin-top: 11px;
+		margin-top: 8px;
 
 		&.mac {
 			margin-top: 8px;
+		}
+
+		&.win7 {
+			margin-top: 11px;
 		}
 	}
 
@@ -433,10 +401,14 @@ body,
 
 			&[active] {
 				border-bottom: 3px solid @light-text;
-				padding-bottom: 28px;
+				padding-bottom: 25px;
 
 				&.mac {
 					padding-bottom: 25px;
+				}
+
+				&.win7 {
+					padding-bottom: 28px;
 				}
 			}
 
@@ -540,14 +512,17 @@ body,
 			margin: 0px;
 			padding-bottom: 13px;
 			cursor: pointer;
-			margin-top: 5px;
 
 			&[active] {
 				border-bottom: 3px solid @light-text;
-				padding-bottom: 10px;
+				padding-bottom: 7px;
 
 				&.mac {
 					padding-bottom: 7px;
+				}
+
+				&.win7 {
+					padding-bottom: 10px;
 				}
 			}
 
@@ -615,12 +590,17 @@ body,
 }
 
 .left-nav {
-	float: left;
 	padding: 0px;
-	z-index: 5;
-	position: fixed;
+	z-index: 6;
+	width: 200px;
+	position: absolute;
 	left: 0px;
 	top: 120px;
+
+	&.fixed {
+		position: fixed;
+		top: 55px;
+	}
 
 	.vertical-nav {
 		width: 200px;
@@ -635,19 +615,27 @@ body,
 			li {
 				font-weight: 500;
 				transition: all 250ms;
+				color: rgba(33,33,33,0.75);
 
 				&:hover {
 					background-color: #F1F1F1;
+					border-right: 3px solid @header-color;
+					color: #212121;
 				}
 
-				&[active] {
-					border-left: 3px solid @header-color;
+				&.active {
+					border-right: 3px solid @header-color;
+					color: #212121;
+
+					&.elementHovered {
+						border-right: 1px solid @header-color;
+					}
 				}
 
 				a {
 					display: block;
-					color: rgba(33,33,33,0.75);
 					text-decoration: none;
+					color: inherit;
 					font-size: 20px;
 					padding: 16px;
 				}
@@ -705,6 +693,7 @@ code {
 	background-color: #F1F1F1;
 	color: @red;
 	border: 1px solid #D4D4D4;
+	padding: 0px 4px;
 }
 
 pre {
@@ -782,6 +771,8 @@ input {
 		text-transform: uppercase;
 		transition: all 250ms;
 		margin: 16px;
+		color: @light-text;
+		outline: none;
 
 		&:hover {
 			.BoxShadowHelper(2);
@@ -806,35 +797,161 @@ input {
 	}
 }
 
-.fab-container {
-	position: fixed;
-	height: 50px;
-	width: 51px;
-	right: 16px;
-	bottom: 16px;
-	.BoxShadowHelper(2);
-	border-radius: 50%;
+button {
+	cursor: pointer;
+	-webkit-appearence: button;
+	.BoxShadowHelper(1);
 	background-color: @header-color;
-	color: @dark-text;
-	z-index: 1000;
-	line-height: 50px;
+	border: none;
+	font-size: 16px;
+	padding: 12px 16px;
+	border-radius: 2px;
+	text-transform: uppercase;
 	transition: all 250ms;
+	margin: 16px;
+	color: @light-text;
+	outline: none;
 
 	&:hover {
-		.BoxShadowHelper(3);
+		.BoxShadowHelper(2);
+		-webkit-transform: translateY(-3px);
+		-moz-transform: translateY(-3px);
+		transform: translateY(-3px);
 	}
 
-	a {
+	&.red {
+		background-color: @red;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.pink {
+		background-color: @pink;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.purple {
+		background-color: @purple;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.deep-purple {
+		background-color: @deep-purple;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.indigo {
+		background-color: @indigo;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.blue {
+		background-color: @blue;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.light-blue {
+		background-color: @light-blue;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.cyan {
+		background-color: @cyan;
+		color: @dark-text;
+		border-bottom: none;
+		border-bottom: none;
+	}
+
+	&.teal {
+		background-color: @teal;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.green {
+		background-color: @green;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.light-green {
+		background-color: @light-green;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.lime {
+		background-color: @lime;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.yellow {
+		background-color: @yellow;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.amber {
+		background-color: @amber;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.orange {
+		background-color: @orange;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.deep-orange {
+		background-color: @deep-orange;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.brown {
+		background-color: @brown;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.grey {
+		background-color: @grey;
+		color: @dark-text;
+		border-bottom: none;
+	}
+
+	&.blue-grey {
+		background-color: @blue-grey;
+		color: @light-text;
+		border-bottom: none;
+	}
+
+	&.fab {
 		display: inline-block;
 		text-decoration: none;
 		color: inherit;
 		font-size: 16px;
 		text-align: center;
-		margin-left: auto;
-		margin-right: auto;
-		vertical-align: middle;
+		height: 50px;
+		width: 50px;
+		border-radius: 50%;
+		position: fixed;
 		height: 50px;
 		width: 51px;
+		right: 16px;
+		bottom: 16px;
+		z-index: 1000;
+		margin: 0;
+		padding-left: 13px;
+		padding-top: 13px;
 
 		img {
 			width: 25px;
@@ -842,6 +959,10 @@ input {
 			vertical-align: middle;
 		}
 	}
+}
+
+.tableContainer {
+	overflow: scroll;
 }
 
 .table {
@@ -896,4 +1017,135 @@ input {
 a {
 	text-decoration: none;
 	color: @blue;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.ripple{
+  overflow:hidden;
+}
+
+.ripple-effect{
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+
+
+  animation: ripple-animation 2s;
+}
+
+
+@keyframes ripple-animation {
+    from {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+    }
+}
+
+.group            {
+  position:relative;
+  margin: 16px;
+	margin-bottom: 36px;
+
+	&[last] {
+		margin-bottom: 16px;
+	}
+}
+input[type="text"], input[type="password"] {
+  font-size:18px;
+  padding:10px;
+  display:block;
+  width:280px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input[type="text"]:focus, input[type="password"]:focus {
+	outline:none;
+  border-bottom:1px solid @header-color;
+}
+
+/* LABEL ======================================= */
+label                {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:10px;
+  top:10px;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="password"]:focus ~ label, input[type="password"]:valid ~ label {
+  top:-20px;
+  font-size:14px;
+  color:@header-color;
+}
+
+/* BOTTOM BARS ================================= */
+.bar    { position:relative; display:block; width:300px; }
+.bar:before, .bar:after     {
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:@header-color;
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input[type="text"]:focus ~ .bar:before, input[type="text"]:focus ~ .bar:after, input[type="password"]:focus ~ .bar:before, input[type="password"]:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%;
+  width:300px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input[type="text"]:focus ~ .highlight, input[type="password"]:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.5s ease;
+  -moz-animation:inputHighlighter 0.5s ease;
+  animation:inputHighlighter 0.5s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from { background:@header-color; }
+  to    { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+    from { background:@header-color; }
+  to    { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+    from { background:@header-color; }
+  to    { width:0; background:transparent; }
 }
