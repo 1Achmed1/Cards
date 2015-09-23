@@ -5,8 +5,12 @@
 	<!-- page title -->
 	<title>Cards by Andrew Ward</title>
 
+	<!-- meta tags -->
+	<meta name="theme-color" content="#009688">
+
 	<!-- imports -->
 	<link rel="stylesheet/less" type="text/css" href="dependencies/css/base.less">
+	<link rel="stylesheet" type="text/css" href="dependencies/css/snackbar.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic,700,700italic,300italic" rel="stylesheet" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,26 +28,35 @@
 		<div class="card header" hover="false">
 			<div class="left-part"><span>Cards<span></div>
 			<ul>
-				<li class="header-link-container1" active><a href="javascript:void(0)" class="header-link1">Horizontal Navigation</a></li>
-				<li class="header-link-container2"><a href="nav-drawer" class="header-link2">Vertical Navigation</a></li>
-				<li class="header-link-container3"><a href="color" class="header-link3">Color</a></li>
-				<li class="header-link-container4"><a href="tables" class="header-link4">Tables</a></li>
+				<li class="header-link-container" active><a href="javascript:void(0)" class="header-link">Horizontal Navigation</a></li>
+				<li class="header-link-container"><a href="nav-drawer" class="header-link">Vertical Navigation</a></li>
+				<li class="header-link-container"><a href="color" class="header-link">Color</a></li>
+				<li class="header-link-container"><a href="tables" class="header-link">Tables</a></li>
 			</ul>
 		</div>
 		<div class="card" style="margin-top: 133px;" titled>
 			<div class="title">
-				<span>Welcome to Cards 1.1!</span>
+				<span>Welcome to Cards 1.2!</span>
 			</div>
 			<div class="content">
-				<p>Welcome to Cards version 1.1! In this version I've added</p>
+				<p>Welcome to Cards version 1.2 "Bullseye"! In this version I've added</p>
 				<ul>
-					<li>Redesigned Header card</li>
-					<li>Redesigned horizontal navigation</li>
-					<li>Added a bar to the horizontal and vertical navigation based on where you are</li>
-					<li>Cool scroll animation for the header</li>
-					<li>A new icon! (Scroll down and look at the header to see it!)</li>
-					<li>Switched distance units to pixels instead of REM units. Should look more consistent from screen size to screen size</li>
-					<li>Some jQuery! I'm still learning, so some improvements are to come</li>
+					<li>Refined Buttons! (Ripple effect, colors) Click the button on the Inputs card below!</li>
+					<li>New text inputs. Works for text and passwords.</li>
+					<li>Colored scroll bar. Can be switched back to gray. Only works in WebKit browers like Chrome, Safari, and Opera.</li>
+					<li>Reworked Less files. Colors and variables are now in their own separate files, and imported into the main file. I've also added the ENTIRE material color palette :)</li>
+					<li>Reworked shadow on the icon. It now fades, unlike before.</li>
+					<li>Reworked positioning on the FAB icon.</li>
+					<li>Reworked positioning on the header.</li>
+					<li>Reworked border radius on Cards.</li>
+					<li>Reworked vertical navigation. There's a known issue when it becomes fixed, I'm working on it. As a result, most of the changes have been limited to the nav-drawer page.</li>
+					<li>Reworked active page on vertical navigation. Color selector is now on the right, active link is darkened.</li>
+					<li>Reworked inline code blocks. Now has more left and right padding.</li>
+					<li>Fixed a problem in Windows 10. See the <a href="https://github.com/1Achmed1/Cards/blob/master/README.md">project readme</a> for more info.</li>
+					<li>Fixed tables to now scroll on narrow screens.</li>
+					<li>Fixed the horizontal rule in the footer to be a little less invasive the the text.</li>
+					<li>Fixed the way links are handled to be much more light-weight. Improves loading times.</li>
+					<li>Ditched border radius on the scroll bar.</li>
 				</ul>
 				<p>The source and the download are both available on the <a href="https://github.com/1Achmed1/Cards">GitHub project page</a>.</p>
 		 	</div>
@@ -113,12 +126,25 @@
 				<p>The <code>nohover</code> attribute can be used with <code>titled</code> <code>div</code>'s, aswell.</p>
 			</div>
 		</div>
-		<div class="card titled">
+		<div class="card" titled>
 			<div class="title">
 				<span>Inputs</span>
 			</div>
 			<div class="content">
-				<input class="ripple" type="button" value="Button">
+				<a href="buttons"><button class="ripple" id="toButtons">Buttons</button></a>
+				<a href="buttons">See all the buttons</a>
+				<div class="group">
+					<input type="text" required>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+					<label>Text Input</label>
+				</div>
+				<div class="group" last>
+					<input type="password" required>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+					<label>Password Input</label>
+				</div>
 			</div>
 		</div>
 		<div class="card footer" id="footer">
@@ -130,11 +156,12 @@
 		</div>
 
 		<div class="fab-container">
-      <a href="javascript:void(0)" class="fab"><img src="dependencies/img/ic_action_share.png"></a>
+      <a href="javascript:void(0)"><button class="fab ripple"><img src="dependencies/img/ic_action_share.png"></button></a>
     </div>
 	</div>
 
 	<script src="dependencies/js/jquery.easing.min.js"></script>
-	<script src="base.js" type="text/javascript"></script>
+	<script src="horizontal-nav.js" type="text/javascript"></script>
+	<script src="dependencies/js/snackbar.min.js"></script>
 </body>
 </html>
