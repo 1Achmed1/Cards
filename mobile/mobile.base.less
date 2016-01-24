@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700,400italic,500italic,700italic&subset=latin,latin-ext);
-@import "vars.less";
-@import "colors.less";
+@import "../dependencies/css/vars.less";
+@import "../dependencies/css/colors.less";
 
 html {
 	height: 100%;
@@ -55,44 +55,17 @@ body,
 	&.content {
 		z-index: 3;
 	}
-
-	&.restricted-width {
-		width: 50%;
-		min-width: 750px;
-		margin: auto;
-	}
-}
-
-@keyframes slideup {
-	from {
-		-webkit-transform: translateY(20px);
-		-moz-transform: translateY(20px);
-		transform: translateY(20px);
-	}
-	to {
-		-webkit-transform: translateY(0px);
-		-moz-transform: translateY(0px);
-		transform: translateY(0px);
-	}
-}
-
-.meta-title {
-	display: hidden;
 }
 
 .card {
 	position: relative;
 	display: block;
 	padding: 16px;
-	border-radius: 2px;
 	font-size: 16px;
 	background-color: #FFF;
 	-webkit-transition: all 250ms;
 	transition: all 250ms;
-	.BoxShadowHelper(1);
-	margin: 13px;
 	overflow: hidden;
-	animation: slideup 0.5s ease;
 	z-index: 5;
 
 	&:hover {
@@ -127,11 +100,6 @@ body,
 			display: none;
 		}
 
-		&.stick-bottom {
-			position: absolute;
-			bottom: 0px;
-		}
-
 		.content {
 			display: none;
 			text-align: left;
@@ -154,121 +122,6 @@ body,
 				display: block;
 			}
 		}
-	}
-
-	&[color="red"] {
-		background-color: @red;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="pink"] {
-		background-color: @pink;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="purple"] {
-		background-color: @purple;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="deep-purple"] {
-		background-color: @deep-purple;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="indigo"] {
-		background-color: @indigo;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="blue"] {
-		background-color: @blue;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="light-blue"] {
-		background-color: @light-blue;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="cyan"] {
-		background-color: @cyan;
-		color: @dark-text;
-		border-bottom: none;
-		border-bottom: none;
-	}
-
-	&[color="teal"] {
-		background-color: @teal;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="green"] {
-		background-color: @green;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="light-green"] {
-		background-color: @light-green;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="lime"] {
-		background-color: @lime;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="yellow"] {
-		background-color: @yellow;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="amber"] {
-		background-color: @amber;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="orange"] {
-		background-color: @orange;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="deep-orange"] {
-		background-color: @deep-orange;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="brown"] {
-		background-color: @brown;
-		color: @light-text;
-		border-bottom: none;
-	}
-
-	&[color="grey"] {
-		background-color: @grey;
-		color: @dark-text;
-		border-bottom: none;
-	}
-
-	&[color="blue-grey"] {
-		background-color: @blue-grey;
-		color: @light-text;
-		border-bottom: none;
 	}
 
 	// div[3way] {
@@ -313,132 +166,124 @@ body,
 
 		.title {
 			padding: 16px;
-
-			&.lower-line {
-				border-bottom: 1px solid @dark-text-disabled;
-			}
-
-			.samples-container {
-				padding-top: 13px;
-				display: none;
-			}
+			border-bottom: 1px solid @dark-divider;
 
 			&[colored] {
-				background-color: @status-bar-color;
+				background-color: @header-color;
 				color: @light-text;
 			}
 
 			&[red] {
-				background-color: @red-700;
+				background-color: @red;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[pink] {
-				background-color: @pink-700;
+				background-color: @pink;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[purple] {
-				background-color: @purple-700;
+				background-color: @purple;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[deep-purple] {
-				background-color: @deep-purple-700;
+				background-color: @deep-purple;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[indigo] {
-				background-color: @indigo-700;
+				background-color: @indigo;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[blue] {
-				background-color: @blue-700;
+				background-color: @blue;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[light-blue] {
-				background-color: @light-blue-700;
-				color: @light-text;
+				background-color: @light-blue;
+				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[cyan] {
-				background-color: @cyan-700;
-				color: @light-text;
+				background-color: @cyan;
+				color: @dark-text;
 				border-bottom: none;
 				border-bottom: none;
 			}
 
 			&[teal] {
-				background-color: @teal-700;
+				background-color: @teal;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[green] {
-				background-color: @green-700;
-				color: @light-text;
+				background-color: @green;
+				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[light-green] {
-				background-color: @light-green-700;
-				color: @light-text;
+				background-color: @light-green;
+				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[lime] {
-				background-color: @lime-700;
+				background-color: @lime;
 				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[yellow] {
-				background-color: @yellow-700;
+				background-color: @yellow;
 				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[amber] {
-				background-color: @amber-700;
+				background-color: @amber;
 				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[orange] {
-				background-color: @orange-700;
+				background-color: @orange;
 				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[deep-orange] {
-				background-color: @deep-orange-700;
+				background-color: @deep-orange;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[brown] {
-				background-color: @brown-700;
+				background-color: @brown;
 				color: @light-text;
 				border-bottom: none;
 			}
 
 			&[grey] {
-				background-color: @grey-700;
-				color: @light-text;
+				background-color: @grey;
+				color: @dark-text;
 				border-bottom: none;
 			}
 
 			&[blue-grey] {
-				background-color: @blue-grey-700;
+				background-color: @blue-grey;
 				color: @light-text;
 				border-bottom: none;
 			}
@@ -468,106 +313,6 @@ body,
 	}
 }
 
-.side-by-side-cards {
-	display: flex;
-
-	.card {
-		&:nth-child(1) {
-			max-width: 100%;
-			min-width: 16.6%;
-			flex: 1;
-		}
-		&:nth-child(2) {
-			max-width: 50%;
-			min-width: 16.6%;
-			flex: 2;
-		}
-		&:nth-child(3) {
-			max-width: 33%;
-			min-width: 16.6%;
-			flex: 3;
-		}
-		&:nth-child(4) {
-			max-width: 25%;
-			min-width: 16.6%;
-			flex: 4;
-		}
-		&:nth-child(5) {
-			max-width: 20%;
-			min-width: 16.6%;
-			flex: 5;
-		}
-		&:nth-child(6) {
-			max-width: 16.6%;
-			min-width: 16.6%;
-			flex: 6;
-		}
-	}
-}
-
-.login-card {
-	width: 500px;
-	margin-left: auto;
-	margin-right: auto;
-
-	.default-picture-span {
-		display: block;
-		text-align: center;
-
-		.login-picture {
-			border-radius: 50%;
-		}
-	}
-
-	.text-field-container {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 16px;
-	}
-}
-
-.toast {
-  background-color: #212121;
-  padding: 15px 0px;
-  font-size: 16px;
-  position: fixed;
-  left: 10px;
-  bottom: -50px;
-  border-radius: 2px;
-	display: hidden;
-	color: @light-text;
-  z-index: 99999;
-
-  &[active="true"] {
-    display: block;
-  }
-
-  span {
-    padding: 15px 20px;
-  }
-
-  .toast-action {
-    color: @header-color;
-    padding: 15px 20px;
-
-    &:hover {
-      cursor: pointer;
-      animation: toastButtonHover 0.5s ease;
-      background-color: rgba(0, 0, 0, 0.1);
-    }
-  }
-}
-
-@keyframes toastButtonHover {
-  from {
-    background-color: rgba(0, 0, 0, 0.0);
-  }
-  to {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-}
-
 .header {
 	font-size: 32px;
 	overflow: hidden;
@@ -579,7 +324,7 @@ body,
 	margin-top: 16px;
 	margin-left: 13px;
 	margin-right: 13px;
-	margin-bottom: 16px;
+	margin-bottom: 30px;
 	position: fixed;
 	top: 0px;
 	left: 0px;
@@ -594,27 +339,6 @@ body,
 		float: left;
 		margin: 0px;
 		margin-top: 8px;
-
-		span {
-			a {
-				color: inherit;
-
-				&:hover {
-					text-decoration: none;
-				}
-			}
-
-			&.nav-drawer-toggle {
-				margin-left: 10px;
-				margin-right: 20px;
-
-				&:hover {
-					cursor: pointer;
-					animation: nav-drawer-fade 300ms ease;
-					color: @light-text-secondary;
-				}
-			}
-		}
 
 		&.mac {
 			margin-top: 8px;
@@ -652,10 +376,6 @@ body,
 		color: @light-text-secondary;
 	}
 
-	.default-cursor{
-		cursor: default !important;
-	}
-
 	ul {
 		list-style: none;
 		text-decoration: none;
@@ -669,13 +389,12 @@ body,
 		li {
 			display: inline;
 			padding-top: 5px;
-			padding-left: 15px;
-			padding-right: 15px;
+			padding-left: 10px;
+			padding-right: 10px;
 			transition: all 200ms;
 			margin: 0px;
 			padding-bottom: 31px;
 			cursor: pointer;
-			color: @light-text-secondary;
 
 			&[active] {
 				border-bottom: 3px solid @light-text;
@@ -704,15 +423,6 @@ body,
 				transition: all 200ms;
 			}
 		}
-	}
-}
-
-@keyframes nav-drawer-fade {
-	from {
-		color: @light-text;
-	}
-	to {
-		color: @light-text-secondary;
 	}
 }
 
@@ -859,9 +569,6 @@ body,
 	}
 }
 .BoxShadowHelper(@level: 1){
-		& when (@level = 0) {
-				box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0), 0 0px 0px rgba(0, 0, 0, 0.0);
-		}
     & when (@level = 1) {
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     }
@@ -884,17 +591,12 @@ body,
 	z-index: 6;
 	width: 200px;
 	position: absolute;
-	left: -220px;
+	left: 0px;
 	top: 120px;
-	.BoxShadowHelper(2);
 
 	&.fixed {
 		position: fixed;
 		top: 55px;
-	}
-
-	&[data-start-open="true"] {
-		left: 0px;
 	}
 
 	.vertical-nav {
@@ -1060,7 +762,7 @@ input {
 		background-color: @header-color;
 		border: none;
 		font-size: 16px;
-		padding: 12px 20px;
+		padding: 12px 16px;
 		border-radius: 2px;
 		text-transform: uppercase;
 		transition: all 250ms;
@@ -1098,7 +800,7 @@ button {
 	background-color: @header-color;
 	border: none;
 	font-size: 16px;
-	padding: 12px 20px;
+	padding: 12px 16px;
 	border-radius: 2px;
 	text-transform: uppercase;
 	transition: all 250ms;
@@ -1111,38 +813,6 @@ button {
 		-webkit-transform: translateY(-3px);
 		-moz-transform: translateY(-3px);
 		transform: translateY(-3px);
-	}
-
-	&.no-left {
-		margin-left: 0px;
-	}
-
-	&.no-right {
-		margin-right: 0px;
-	}
-
-	&.no-top {
-		margin-top: 0px;
-	}
-
-	&.no-bottom {
-		margin-bottom: 0px;
-	}
-
-	&.button-right {
-		float: right;
-	}
-
-	&.button-left {
-		float: left;
-	}
-
-	&.login-full-width {
-		width: 404px;
-	}
-
-	&.allow-lowercase {
-		text-transform: none;
 	}
 
 	&.red {
@@ -1285,23 +955,6 @@ button {
 			vertical-align: middle;
 		}
 	}
-
-	&.inset {
-		background-color: rgba(0, 0, 0, 0.0);
-		color: @header-color;
-		.BoxShadowHelper(0);
-		-webkit-transform: translateY(0px);
-		-moz-transform: translateY(0px);
-		transform: translateY(0px);
-
-		&:hover {
-			background-color: rgba(0, 0, 0, 0.1);
-			.BoxShadowHelper(0);
-			-webkit-transform: translateY(0px);
-			-moz-transform: translateY(0px);
-			transform: translateY(0px);
-		}
-	}
 }
 
 .tableContainer {
@@ -1327,7 +980,7 @@ button {
 				padding-right: 32px;
 
 				&[last] {
-					padding-right: 32px;
+					padding-right: 16px;
 				}
 
 				&[first] {
@@ -1378,7 +1031,7 @@ a {
   background: white;
 
 
-  animation: ripple-animation 2s ease;
+  animation: ripple-animation 2s;
 }
 
 
@@ -1397,12 +1050,6 @@ a {
   position:relative;
   margin: 16px;
 	margin-bottom: 36px;
-	width: 400px;
-
-	&.login {
-		margin-left: auto;
-		margin-right: auto;
-	}
 
 	&[last] {
 		margin-bottom: 16px;
@@ -1412,7 +1059,7 @@ input[type="text"], input[type="password"] {
   font-size:18px;
   padding:10px;
   display:block;
-  width:380px;
+  width:280px;
   border:none;
   border-bottom:1px solid #757575;
 }
@@ -1443,7 +1090,7 @@ input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, input[type="
 }
 
 /* BOTTOM BARS ================================= */
-.bar    { position:relative; display:block; width:400px; }
+.bar    { position:relative; display:block; width:300px; }
 .bar:before, .bar:after     {
   content:'';
   height:2px;
@@ -1471,7 +1118,7 @@ input[type="text"]:focus ~ .bar:before, input[type="text"]:focus ~ .bar:after, i
 .highlight {
   position:absolute;
   height:60%;
-  width:400px;
+  width:300px;
   top:25%;
   left:0;
   pointer-events:none;
@@ -1591,16 +1238,4 @@ input[type="text"]:focus ~ .highlight, input[type="password"]:focus ~ .highlight
   80%, 90% {
     stroke: #ffa700;
   }
-}
-
-input[type="text"].search {
-	background-color: @teal-400;
-	font-size: 16px;
-	font-family: 'Roboto', sans-serif;
-	color: @dark-text;
-	height: 15px;
-	border-radius: 2px;
-	display: block;
-	max-width: 760px;
-	width: 100%
 }

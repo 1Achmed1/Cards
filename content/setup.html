@@ -1,0 +1,70 @@
+<div class="meta-title" data-title="Initial Setup - Cards"/>
+<div class="container">
+  <div class="card header-scrolled" hover="false">
+    <ul>
+      <li class="default-cursor">Welcome to Cards!</li>
+    </ul>
+  </div>
+  <img src="dependencies/img/logo.png" alt="Logo here" height="75px" style="display: block; margin-left: auto; margin-right: auto; margin-top: 60px;">
+  <div class="card login-card" titled style="margin-top: 10px; width: 75%; min-width: 500px;" hover="false">
+      <div class="title lower-line">
+        <span>Cards Inital Setup</span>
+      </div>
+      <div class="content" id="setup-card">
+        <p>Cards needs to be set up to work properly. Please follow the steps below and we'll make sure you've done everything correctly.</p>
+        <ol>
+          <li>Head over to <a href="http://parse.com" target="_blank">Parse.com</a></li>
+          <li>Click "Sign up" in the top-right corner of the browser window</li>
+          <li>Sign in with Facebook, Github, or Google. You can also manually enter all of your information. If you do, name your first project what you want the title of your website to be.</li>
+          <li>At the top bar (should be gray) click "Core".</li>
+          <li>On the left, click "Config".</li>
+          <li>Click "Create your first parameter".</li>
+          <li>Name the parameter "websiteTitle", without the quotes. Capitalization matters, so just copy/paste what I've put in the quotes.</li>
+          <li>Set the box that says "Value" to the title of your website. This title will show up in the title bar of tabs or the window.</li>
+          <li>Go ahead and make the following parameters next:
+            <ol>
+              <li>
+                <ul>
+                  <li>Title: "setUpCompleted"</li>
+                  <li>Type: Boolean</li>
+                  <li>Value: false</li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>Title: "contentDir"</li>
+                  <li>Type: String</li>
+                  <li>Value: Set this to "content" if you don't know what this is.</li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>Title: "fileEndings"</li>
+                  <li>Type: String</li>
+                  <li>Value: Set this to what most of your files will be. Leave as "html" if you don't know what this is.</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+          <li>Once you're done with that, you should have four different parameters. Now click the big "P" in the top-right corner of the screen.</li>
+          <li>On your project you should see a blue link that says "quickstart guide". Click it.</li>
+          <li>Click the icon that says "Data".</li>
+          <li>Click "Web".</li>
+          <li>Click "Existing Project".</li>
+          <li>Copy everything from the <strong>second</strong> code box. It should have random numbers and letters in it.</li>
+          <li>Open the file <code>content-loader.js</code> from <strong>your</strong> website's root directory using an application like Notepad or TextEdit. Do not use WordPad, MS Word, Pages, etc.</li>
+          <li>Paste everything you copied onto the third line, overwritting everything that's there.
+            <ul>
+              <li>Here's a screenshot to help you out: <br><img src="./dependencies/img/setup-screenie.png" alt="Setup Screenshot"></li>
+            </ul>
+          </li>
+          <li>Now save your edits and click <a href="javascript:location.reload();">reload</a> and check below for your config info.</li>
+        </ol>
+      </div>
+  </div>
+</div>
+
+<script src="dependencies/js/jquery.easing.min.js"></script>
+<script src="horizontal-nav.js" type="text/javascript"></script>
+<script src="content-loader.js" type="text/javascript"></script>
+<script src="setup.js" type="text/javascript"></script>

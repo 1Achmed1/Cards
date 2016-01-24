@@ -15,9 +15,6 @@ var os = (function() {
 }());
 
 var main = function() {
-  $(".header-link-container").click(function() {
-    window.location.href = $(this).children().attr('href');
-  });
 
   $(".ripple").css("background-color", $(this).data("color"));
 
@@ -37,12 +34,36 @@ var main = function() {
   }, function() {
     $(".active").removeClass('elementHovered');
   });
+
+  if($(".left-nav").data("startOpen") == false) {
+    $('.nav-drawer-toggle').clickToggle(function() {
+      $(".left-nav").animate({
+        left: 0
+      }, 100);
+    },
+    function() {
+      $(".left-nav").animate({
+        left: -220
+      }, 100);
+    });
+  } else if($(".left-nav").data("startOpen") == true) {
+    $('.nav-drawer-toggle').clickToggle(function() {
+      $(".left-nav").animate({
+        left: -220
+      }, 100);
+    },
+    function() {
+      $(".left-nav").animate({
+        left: 0
+      }, 100);
+    });
+  }
 }
 
 var footerToggle = function() {
   function open() {
     $(".footer").click(function() {
-        $("#footerspan").text('Click to Close the Footer');
+        $("#footerspan").text(footerClose);
         $("#footerArrow").attr('class','fa fa-caret-up');
         $(this).attr('toggled','true')
         close();
@@ -51,7 +72,7 @@ var footerToggle = function() {
 
   function close() {
     $(".footer").click(function() {
-        $("#footerspan").text('Click to Open the Footer');
+        $("#footerspan").text(footerOpen);
         $("#footerArrow").attr('class','fa fa-caret-down');
         $(this).removeAttr('toggled');
         open();
@@ -82,7 +103,7 @@ $(window).scroll(function() {
       if($(".headerImg").length) {
 
       } else {
-        $(".left-part").prepend('<div class="headerImg"><img src="dependencies/img/logo.png" alt="Logo here" height="40px"></div>');
+        $(".left-part").append('<div class="headerImg"><img src="dependencies/img/logo.png" alt="Logo here" height="40px"></div>');
       }
     } else {
       header.attr('class', 'card header');
