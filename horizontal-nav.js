@@ -15,6 +15,7 @@ var os = (function() {
 }());
 
 var main = function() {
+
   $(".header-link-container").click(function() {
     window.location.href = $(this).children().attr('href');
   });
@@ -31,7 +32,7 @@ var main = function() {
 var footerToggle = function() {
   function open() {
     $(".footer").click(function() {
-        $("#footerspan").text('Click to Close the Footer');
+        $("#footerspan").text(footerClose);
         $("#footerArrow").attr('class','fa fa-caret-up');
         $(this).attr('toggled','true')
         close();
@@ -40,7 +41,7 @@ var footerToggle = function() {
 
   function close() {
     $(".footer").click(function() {
-        $("#footerspan").text('Click to Open the Footer');
+        $("#footerspan").text(footerOpen);
         $("#footerArrow").attr('class','fa fa-caret-down');
         $(this).removeAttr('toggled');
         open();

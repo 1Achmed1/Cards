@@ -1,0 +1,203 @@
+<div class="meta-title" data-title="Index"/>
+<div class="container">
+  <div class="alt-header">
+  </div>
+  <div class="card header" hover="false">
+    <div class="left-part"><span><a href="">Cards</a><span></div>
+    <ul>
+      <li class="header-link-container" active><a href="javascript:void(0)" class="header-link">Horizontal Navigation</a></li>
+      <li class="header-link-container"><a href="#nav-drawer" class="header-link">Vertical Navigation</a></li>
+      <li class="header-link-container"><a href="#color" class="header-link">Color</a></li>
+      <li class="header-link-container"><a href="#tables" class="header-link">Tables</a></li>
+    </ul>
+  </div>
+  <div class="card" style="margin-top: 134px;" titled>
+    <div class="title">
+      <span>Welcome to Cards 1.3!</span>
+    </div>
+    <div class="content">
+      <p>Welcome to Cards version 1.3 "Cotton Candy"! In this version I've added</p>
+      <ul>
+        <li>New content loading system. Allows for mobile and desktop versions to be loaded from the same file, simplifying adding new pages.</li>
+        <li>Added toasts! Toasts can be dismissed and optionally hidden until a button is pressed.</li>
+        <li>Added sample <a href="#login-page">login page</a> and necessary elements to make it look good.</li>
+        <li>Added inset buttons. They can be seen on the login page linked in the above listing.</li>
+        <li>Added colored cards. Automatically selects text color according to Color Guidelines.</li>
+        <li>Added toggling functionality to the nav drawer.</li>
+        <li>Added new animation where cards slide up when the page is loaded.</li>
+        <li>Added variables.js, contains all variables used for jQuery, making content editing a little easier.</li>
+        <li>Added side-by-side cards. See below for details.</li>
+        <li>Added restricted-width container. Container can now be restricted to 50% width, with a min-width of 750 pixels. See the Vertical Navigation page.</li>
+        <li>Added a fancy new setup page for editing site info. // This is WIP and doesn't currently do anything on the site.</li>
+        <li>Reworked padding on the left and right of the header links.</li>
+        <li>Reworked page titling system, works with new Content Loader. Inludes fallback if there's no specified title.</li>
+        <li>Removed line under card title by default. Can still be added with the <code>lower-line</code> class.</li>
+      </ul>
+      <p>The source and the download are both available on the <a href="https://github.com/1Achmed1/Cards">GitHub project page</a>. At the moment Firefox works best with Cards, largely due to how it handles buttons. I'd recommend using it instead of Chrome for the time being.</p>
+    </div>
+  </div>
+  <div class="card" id="firstCard" titled>
+        <div class="title">
+          <span>Section Header.</span>
+        </div>
+        <div class="content">
+            <p>This is a normal section with a header. The header can be used to display header text like a title.</p>
+            <p>Example with the whole section:</p>
+            <!--<pre>&lt;div class="card" titled&gt;
+&lt;div class="title"&gt;
+  &lt;span&gt;Section Header.&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="content"&gt;
+  &lt;p>This is a normal section with a header. The header can be used to display header text like a title.&lt;/p&gt;
+  &lt;p>Example with the whole section:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>-->
+          <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">card</span>" <span class="attr">titled</span>&gt;
+&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">title</span>"&gt;
+  &lt;<span class="tag">span</span>&gt;<span class="plain">Section Header.</span>&lt;<span class="tag">/span</span>&gt;
+&lt;<span class="tag">/div</span>&gt;
+&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">content</span>"&gt;
+  &lt;<span class="tag">p</span>&gt;<span class="plain">This is a normal section with a header. The header can be used to display header text like a title.</span>&lt;<span class="tag">/p</span>&gt;
+&lt;<span class="tag">/div</span>&gt;
+&lt;<span class="tag">/div</span>&gt;</code></pre>
+        </div>
+  </div>
+
+  <div class="card" titled color="teal">
+        <div class="title" colored>
+          <span>Colored Card</span>
+        </div>
+        <div class="content">
+            <p>Colored cards deprecate shadowed cards in version 1.3. Shadowed cards, or those where the title has a shadow below it, will be removed in Cards 1.4, and colored cards will replace them.</p>
+            <p>Example:</p>
+            <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">card</span>" <span class="attr">titled</span> <span class="attr">color</span>="<span class="value">teal</span>"&gt;
+  &lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">title</span>" <span class="attr">teal</span>&gt;
+    &lt;<span class="tag">span</span>&gt;<span class="plain">Colored Card.</span>&lt;<span class="tag">/span</span>&gt;
+  &lt;<span class="tag">/div</span>&gt;
+&lt;<span class="tag">/div</span>&gt;</code></pre>
+        </div>
+  </div>
+
+  <div class="card" titled color="blue-grey">
+    <div class="title" blue-grey>
+      <span>Blue-Grey Card</span>
+    </div>
+    <div class="content">
+      <p>This is just a sample blue-grey colored card. Blue-grey goes well with a teal accent color.</p>
+    </div>
+  </div>
+
+  <div class="card" titled>
+    <div class="title">
+      <span>Side-By-Side Cards</span>
+    </div>
+    <div class="content">
+      <p>In Cards 1.3, you can now place cards side by side, with up to 6 cards horizontally. Side by side cards require Flex element browser support. Browsers that support Flex include Chrome, Firefox, Edge, and Safari 9.</p>
+    </div>
+  </div>
+  <div class="side-by-side-cards">
+    <div class="card " titled>
+      <div class="title">
+        <span>Left Card</span>
+      </div>
+      <div class="content">
+        <p>Side by side cards are kept in a <code>div</code> with a class of <code>side-by-side-cards</code>, which is a flex element.</p>
+      </div>
+    </div>
+    <div class="card" titled>
+      <div class="title">
+        <span>Right Card</span>
+      </div>
+      <div class="content">
+        <p>The Flex position of each side by side card is defined by which child it is. Since this card is the second child of the flex element, it'll be <code>flex: 2;</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" titled>
+    <div class="title">
+      <span>Titling Pages</span>
+    </div>
+    <div class="content">
+      <p>Cards 1.3 introduces a new page loading system. This change means that there's one central index page that dynamically changes. As a result, there needed to be a new system to give page titles. This can be done with a <code>div</code> element.</p>
+      <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">meta-title</span>" <span class="attr">data-title</span>="<span class="value">Page Title Here!</span>" <span class="tag">/</span>&gt;</code></pre>
+      <p>The new system uses jQuery to look for a <code>div</code> with the <code>meta-title</code> class, and then uses the element's <code>data-title</code> attribute to title the page. A default can be set on the core index, but you should make it a generic "Loading..." title, indicating to the user that the website is loading.</p>
+    </div>
+  </div>
+
+  <div class="card" titled>
+        <div class="title" colored>
+          <span>Colored Section Header.</span>
+        </div>
+        <div class="content">
+            <p>Coloring the title is as easy as adding the <code>colored</code> attribute to the <code>title</code> <code>div</code>.</p>
+            <p>Example:</p>
+            <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">title</span>" <span class="attr">colored</span>&gt;
+&lt;<span class="tag">span</span>&gt;<span class="plain">Colored Section Header.</span>&lt;<span class="tag">/span</span>&gt;
+&lt;<span class="tag">/div</span>&gt;</code></pre>
+          <p>The colored section header automatically takes the <code>@header-color</code> from <code>base.less</code>. Less can be used to make changing things a lot easier, however there's no reason why you cannot change it directly in <code>base.css</code>.</p>
+        </div>
+  </div>
+
+  <div class="card" titled nohover>
+    <div class="title">
+      <span>Non-hovering Card</span>
+    </div>
+    <div class="content">
+      <p>You can prevent a card from using the hover effect with the <code>hover</code> attribute. Cards 1.4 will change custom attributes to <code>data-</code> ones, meaning in Cards 1.4 instead of <code>hover="false"</code>, it will be <code>data-hover="false"</code></p>
+      <p>Example:</p>
+      <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">card</span>" <span class="attr">hover</span>="<span class="value">false</span>"&gt;</code></pre>
+      <p>The <code>hover="false"</code> attribute can be used with <code>titled</code> <code>div</code>'s, aswell.</p>
+      <p>The non-hovering card is used for cards that wouldn't natually hover, or that have content on them that would also hover. Examples include the nav drawer, heading card, and login card.</p>
+    </div>
+  </div>
+  <div class="card" titled>
+    <div class="title">
+      <span>Inputs</span>
+    </div>
+    <div class="content">
+      <a href="#buttons"><button class="ripple" id="toButtons">Button</button></a>
+      <a href="#buttons">See all the buttons</a>
+      <div class="group">
+        <input type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Text Input</label>
+      </div>
+      <div class="group" last>
+        <input type="password" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Password Input</label>
+      </div>
+    </div>
+  </div>
+  <div class="card" titled>
+    <div class="title">
+      <span>Toasts</span>
+    </div>
+    <div class="content">
+      <button class="ripple showToast" data-toast-target="sample-toast">Show me a Toast!</button>
+      <p>Toasts are closed, or off screen, by default. To have a toast opened when the page loads, add the <code>opened</code> class to the corresponding <code>toast</code> <code>div</code> element. An example can be seen on the sample login page. Anything that will show a toast must have the <code>showToast</code> class and a <code>data-toast-toggle</code> value the same as the id of the targeted toast. The toast dismissal system is reliable but the parent of the <code>span</code> with the <code>dismissToast</code> class must be the toast <code>div</code>.</p>
+    </div>
+  </div>
+  <div class="card footer" id="footer">
+    <i class="fa fa-caret-down" id="footerArrow"></i><span id="footerspan">Click to Open the Footer</span>
+    <hr>
+    <div class="content">
+      <span>"Cards" developed by Andrew Ward. Hosted and open-sourced on GitHub. Made in ATOM using LESS and jQuery.</span>
+    </div>
+  </div>
+  <div class="toast" id="sample-toast" style="display: none; bottom: -50px; opacity: 0;">
+    <span>This is a sample toast! Toasts can contain multiple buttons, including one for dismissal!</span><span class="toast-action">Action!</span><span class="toast-action dismissToast">DISMISS</span>
+  </div>
+  <div class="fab-container">
+    <a href="javascript:void(0)"><button class="fab ripple"><img src="dependencies/img/ic_action_share.png"></button></a>
+  </div>
+</div>
+
+<script src="dependencies/js/jquery.easing.min.js"></script>
+<script src="horizontal-nav.js" type="text/javascript"></script>
+<script src="content-loader.js" type="text/javascript"></script>
+<script src="variables.js" type="text/javascript"></script>
+<script src="dependencies/js/snackbar.min.js"></script>
