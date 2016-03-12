@@ -1,5 +1,5 @@
 var fakeHash = window.location.hash;
-var withoutHashtag = fakeHash.substring(fakeHash.indexOf("#")+1);
+var withoutHashtag = fakeHash.substring(fakeHash.indexOf("#") + 1);
 // var contentDir = "content";
 // var fileEndings = ".html";
 // var setUpCompleted = true;
@@ -18,25 +18,25 @@ Parse.Config.get().then(function(config) {
 });
 
 function loader() {
-  if($(".container").length) {
+  if ($(".container").length) {
 
   } else {
-    if(withoutHashtag.length) {
-      if(typeof specialFiles[withoutHashtag] == 'undefined' || specialFiles[withoutHashtag] === null){
+    if (withoutHashtag.length) {
+      if (typeof specialFiles[withoutHashtag] == 'undefined' || specialFiles[withoutHashtag] === null) {
         $("body").load(contentDir + '/' + withoutHashtag + fileEndings, function() {
           $(".loader").remove();
-          var getTitle = $(".meta-title").data("title") + " - "+ websiteTitle;
+          var getTitle = $(".meta-title").data("title") + " - " + websiteTitle;
           document.title = getTitle;
-          if(!$(".meta-title").length){
+          if (!$(".meta-title").length) {
             document.title = titleFallback;
           }
         });
       } else {
         $("body").load(contentDir + '/' + specialFiles[withoutHashtag][0] + "." + specialFiles[withoutHashtag][1], function() {
           $(".loader").remove();
-          var getTitle = $(".meta-title").data("title") + " - "+ websiteTitle;
+          var getTitle = $(".meta-title").data("title") + " - " + websiteTitle;
           document.title = getTitle;
-          if(!$(".meta-title").length) {
+          if (!$(".meta-title").length) {
             document.title = titleFallback;
           }
         });
@@ -44,9 +44,9 @@ function loader() {
     } else {
       $("body").load(contentDir + '/index' + fileEndings, function() {
         $(".loader").remove();
-        var getTitle = $(".meta-title").data("title") + " - "+ websiteTitle;
+        var getTitle = $(".meta-title").data("title") + " - " + websiteTitle;
         document.title = getTitle;
-        if(!$(".meta-title").length){
+        if (!$(".meta-title").length) {
           document.title = titleFallback;
         }
       });
@@ -72,17 +72,17 @@ function loader() {
   });
 }
 
-function showOpenToast(){
+function showOpenToast() {
   $(".toast.opened").animate({
     opacity: 100,
     bottom: 10
   }, 300);
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
   showOpenToast();
   setTimeout(loader, 3000);
-  if(setUpCompleted == false) {
+  if (setUpCompleted == false) {
     window.location.replace("#setup");
   }
 });
@@ -92,15 +92,15 @@ $(window).bind('hashchange', function() {
 });
 
 (function($) {
-    $.fn.clickToggle = function(func1, func2) {
-        var funcs = [func1, func2];
-        this.data('toggleclicked', 0);
-        this.click(function() {
-            var data = $(this).data();
-            var tc = data.toggleclicked;
-            $.proxy(funcs[tc], this)();
-            data.toggleclicked = (tc + 1) % 2;
-        });
-        return this;
-    };
+  $.fn.clickToggle = function(func1, func2) {
+    var funcs = [func1, func2];
+    this.data('toggleclicked', 0);
+    this.click(function() {
+      var data = $(this).data();
+      var tc = data.toggleclicked;
+      $.proxy(funcs[tc], this)();
+      data.toggleclicked = (tc + 1) % 2;
+    });
+    return this;
+  };
 }(jQuery));
