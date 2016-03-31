@@ -1,21 +1,20 @@
 var fakeHash = window.location.hash;
 var withoutHashtag = fakeHash.substring(fakeHash.indexOf("#") + 1);
-// var contentDir = "content";
-// var fileEndings = ".html";
-// var setUpCompleted = true;
-// var websiteTitle = "Fallback Title - Check Parse Config!";
+var href = $(".header-link-container").children().attr('href');
 
-Parse.initialize("mv92aPVI3IBCMc7ADRwLjmCnlA428GngmPiJ2w1Y", "Dmbv4dcBLOKDRofP1Uukk5clO3F2U4gFdQCjpKH6");
-
-Parse.Config.get().then(function(config) {
-  var websiteTitle = config.get("websiteTitle");
-  var setUpCompleted = config.get("setUpCompleted");
-  var contentDir = config.get("contentDir");
-  var fileEndings = config.get("fileEndings");
-}, function(error) {
-  // Something went wrong (e.g. request timed out)
-  alert(error);
-});
+var os = (function() {
+    var ua = navigator.userAgent.toLowerCase();
+    return {
+        isWin2K: /windows nt 5.0/.test(ua),
+        isXP: /windows nt 5.1/.test(ua),
+        isVista: /windows nt 6.0/.test(ua),
+        isWin7: /windows nt 6.1/.test(ua),
+        isWin8: /windows nt 6.2/.test(ua),
+        isWin81: /windows nt 6.3/.test(ua),
+        isWin10: /windows nt 10/.test(ua),
+        isMac: /mac/.test(ua)
+    };
+}());
 
 function loader() {
   if ($(".container").length) {
@@ -79,12 +78,88 @@ function showOpenToast() {
   }, 300);
 }
 
+var header = $(".header");
+var nav = $(".left-nav");
+var subtitle = $(".header-subtitle");
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+
+    if(scroll >= 29) {
+      header.attr('class', 'card header-scrolled');
+      subtitle.remove();
+
+      if(os.isWin7) {
+        $(".left-part").removeClass('win7');
+        $("li[active]").addClass('win7');
+      }
+
+      if($(".headerImg").length) {
+
+      } else {
+        $(".left-part").prepend('<div class="headerImg"><img src="dependencies/img/logo.png" alt="Logo here" height="40px"></div>');
+      }
+    } else {
+      header.attr('class', 'card header');
+      if(os.isWin7) {
+        $(".left-part").addClass('win7');
+        $("li[active]").addClass('win7');
+      }
+
+      if($(".headerImg").length) {
+        $(".headerImg").remove();
+      }
+    }
+
+    if(scroll >= 65) {
+      nav.addClass('fixed');
+    } else {
+      nav.removeClass('fixed');
+    }
+});
+
+var footerToggle = function() {
+  function open() {
+    $(".footer").click(function() {
+        $("#footerspan").text(footerClose);
+        $("#footerArrow").attr('class','fa fa-caret-up');
+        $(this).attr('toggled','true')
+        close();
+    });
+  }
+
+  function close() {
+    $(".footer").click(function() {
+        $("#footerspan").text(footerOpen);
+        $("#footerArrow").attr('class','fa fa-caret-down');
+        $(this).removeAttr('toggled');
+        open();
+    });
+  }
+
+  open();
+}
+
+function other() {
+  $(".ripple").css("background-color", $(this).data("color"));
+
+  if(os.isWin7) {
+    $(".left-part").addClass('win7');
+    $("li[active]").addClass('win7');
+  }
+}
+
 $(document).ready(function() {
   showOpenToast();
   setTimeout(loader, 3000);
   if (setUpCompleted == false) {
     window.location.replace("#setup");
   }
+
+  $(".footer").data("hover", "false");
+  $(".header").data("hover", "false");
+
+  footerToggle;
+  other();
 });
 
 $(window).bind('hashchange', function() {
@@ -104,3 +179,40 @@ $(window).bind('hashchange', function() {
     return this;
   };
 }(jQuery));
+
+(function (window, $) {
+
+  $(function() {
+
+
+    $('.ripple').on('click', function (event) {
+      event.preventDefault();
+
+      var $div = $('<div/>'),
+          btnOffset = $(this).offset(),
+      		xPos = event.pageX - btnOffset.left,
+      		yPos = event.pageY - btnOffset.top;
+
+
+
+      $div.addClass('ripple-effect');
+      var $ripple = $(".ripple-effect");
+
+      $ripple.css("height", $(this).height());
+      $ripple.css("width", $(this).height());
+      $div
+        .css({
+          top: yPos - ($ripple.height()/2),
+          left: xPos - ($ripple.width()/2),
+          background: $(this).data("ripple-color")
+        })
+        .appendTo($(this));
+
+      window.setTimeout(function(){
+        $div.remove();
+      }, 2000);
+    });
+
+  });
+
+})(window, jQuery);

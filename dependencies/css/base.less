@@ -29,6 +29,7 @@ body {
 	width: 12px;
 	height: 14px;
 	margin: 5px;
+	background-color: @dark-divider;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -65,9 +66,9 @@ body,
 
 @keyframes slideup {
 	from {
-		-webkit-transform: translateY(20px);
-		-moz-transform: translateY(20px);
-		transform: translateY(20px);
+		-webkit-transform: translateY(10px);
+		-moz-transform: translateY(10px);
+		transform: translateY(10px);
 	}
 	to {
 		-webkit-transform: translateY(0px);
@@ -90,19 +91,12 @@ body,
 	-webkit-transition: all 250ms;
 	transition: all 250ms;
 	.BoxShadowHelper(1);
-	margin: 13px;
+	margin: 16px;
 	overflow: hidden;
 	animation: slideup 0.5s ease;
 	z-index: 5;
 
 	&:hover {
-		.BoxShadowHelper(2);
-		-webkit-transform: translateY(-3px);
-		-moz-transform: translateY(-3px);
-		transform: translateY(-3px);
-	}
-
-	&[hover='false'] {
 		.BoxShadowHelper(2);
 		-webkit-transform: translateY(-3px);
 		-moz-transform: translateY(-3px);
@@ -294,7 +288,7 @@ body,
 	// 	}
 	// }
 
-	&[nohover] {
+	&[data-hover="false"] {
 		transition: all 0ms;
 		&:hover {
 			.BoxShadowHelper(1);
@@ -578,8 +572,8 @@ body,
 	height: 59px;
 	padding: 16px;
 	margin-top: 16px;
-	margin-left: 13px;
-	margin-right: 13px;
+	margin-left: 16px;
+	margin-right: 16px;
 	margin-bottom: 16px;
 	position: fixed;
 	top: 0px;
@@ -832,7 +826,7 @@ body,
 }
 
 .alt-header {
-	height: 119px;
+	height: 125px;
 	background-color: @status-bar-color;
 	position: fixed;
 	left: 0;
