@@ -84,7 +84,7 @@ var subtitle = $(".header-subtitle");
 $(window).scroll(function() {
     var scroll = $(window).scrollTop();
 
-    if(scroll >= 29) {
+    if(scroll >= 34) {
       header.attr('class', 'card header-scrolled');
       subtitle.remove();
 
@@ -117,7 +117,9 @@ $(window).scroll(function() {
     }
 });
 
-var footerToggle = function() {
+function footerToggle() {
+  open();
+
   function open() {
     $(".footer").click(function() {
         $("#footerspan").text(footerClose);
@@ -135,8 +137,6 @@ var footerToggle = function() {
         open();
     });
   }
-
-  open();
 }
 
 function other() {
@@ -158,7 +158,7 @@ $(document).ready(function() {
   $(".footer").data("hover", "false");
   $(".header").data("hover", "false");
 
-  footerToggle;
+  footerToggle();
   other();
 });
 
