@@ -14,6 +14,9 @@ var contentDir = "content";
 // The file endings in the content directory. Should be ".html" for HTML files and ".php" for PHP files, etc.
 var fileEndings = ".html";
 
+// For if you want to and/or are capable of using PHP on your site
+var canPHP = false;
+
 // **SPECIAL FILE ENDINGS**
 // THIS SECTION IS ONLY TO BE USED IF SOME FILES DON'T USE THE ABOVE FILE EXTENSION:
 // EX: Most files are .html but there's also one or two files that are .php

@@ -13,15 +13,20 @@
   </div>
   <div class="card" style="margin-top: 142px;" titled>
     <div class="title">
-      <span>Welcome to Cards 1.3.2!</span>
+      <span>Welcome to Cards 2 Prerelease!</span>
     </div>
     <div class="content">
-      <p>Welcome to Cards version 1.3.2 "Cotton Candy"! Here's the changelog:</p>
+      <p>Welcome to Cards version 2 (quite dysfunctional) prerelease! Here's the changelog:</p>
       <ul>
-        <li>Increased card padding to look a little better.</li>
-        <li>Now uses <code>data-hover</code> tag instead of the <code>hover</code> tag.</li>
-        <li>Gave the scroll bar a darker background.</li>
-        <li>Consolidated a metric shit ton of JS from <code>vertical-nav.js</code> and <code>horizontal-nav.js</code> into the content loader. Should cut down on system resources.</li>
+        <li>Began reworking the content loader to work the way it was originally intented to.</li>
+        <li>Work on the Bottom Nav component, which was recently added the MD spec, has begun! It's currently rough, but is still there.</li>
+        <li>Minor code optimizations in <code>base.less</code>.</li>
+        <li>Scroll bar width adjusted to be a little wider, goes along with new margin sizes.</li>
+        <li>Text now highlights with accent color.</li>
+        <li>Added chips.</li>
+        <li>New LESS file dedicated to LESS imports, making importing custom stylesheets easier.</li>
+        <li>Began work on tooltips.</li>
+        <li>TODO: PHP (w/e that means ;) ).</li>
       </ul>
       <p>The source and the download are both available on the <a href="https://github.com/1Achmed1/Cards">GitHub project page</a>. At the moment Firefox works best with Cards, largely due to how it handles buttons. I'd recommend using it instead of Chrome for the time being.</p>
     </div>
@@ -169,6 +174,18 @@
     <div class="content">
       <button class="ripple showToast" data-toast-target="sample-toast">Show me a Toast!</button>
       <p>Toasts are closed, or off screen, by default. To have a toast opened when the page loads, add the <code>opened</code> class to the corresponding <code>toast</code> <code>div</code> element. An example can be seen on the sample login page. Anything that will show a toast must have the <code>showToast</code> class and a <code>data-toast-toggle</code> value the same as the id of the targeted toast. The toast dismissal system is reliable but the parent of the <code>span</code> with the <code>dismissToast</code> class must be the toast <code>div</code>.</p>
+    </div>
+  </div>
+  <div class="card" titled>
+    <div class="title">
+      <span>Chips</span>
+    </div>
+    <div class="content">
+      <div class="chip">
+        <img src="dependencies/img/avatar.jpg" />
+        <span>This is a chip</span>
+      </div>
+      <p>Chips are new in Cards 2.0. They're great for contacts or tags. "Chips represent complex entities in small blocks, such as a contact." (Google Material Design spec)</p>
     </div>
   </div>
   <div class="card footer" data-hover="false" id="footer">
