@@ -39,7 +39,4 @@
   </div>
 </div>
 
-<script src="dependencies/js/jquery.easing.min.js"></script>
 <script src="horizontal-nav.js" type="text/javascript"></script>
-<script src="content-loader.js" type="text/javascript"></script>
-<script src="variables.js" type="text/javascript"></script>
