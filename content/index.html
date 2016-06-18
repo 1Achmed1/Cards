@@ -1,4 +1,4 @@
-<div class="meta-title" data-title="Index - Cards by Andrew Ward" data-theme="dark" />
+<div class="meta-title" data-title="Index - Cards by Andrew Ward"></div>
 <div class="container">
   <div class="alt-header">
   </div>
@@ -16,14 +16,14 @@
       <span>Welcome to Cards 2 Prerelease!</span>
     </div>
     <div class="content">
-      <p>Welcome to Cards version 2 (quite dysfunctional) prerelease 2! Here's the changelog since the last prerelease:</p>
+      <p>Welcome to Cards version 2 (quite dysfunctional) prerelease 3! Here's the changelog since the last prerelease:</p>
       <ul>
-        <li>Uses new <a href="//github.com/1Achmed1/importjs">ImportJS</a> library for importing js.</li>
-        <li>Uses new <a href="//github.com/1Achmed1/htmlincludes">HTMLIncludes</a> library for importing HTML templates for common page components.</li>
-        <li>Added Favicon.</li>
-        <li>Added a bunch of meta tags; mostly housekeeping, should've been there from the start.</li>
-        <li>Word usage consistancy.</li>
-        <li>Removed click-to-open functionality of the footer, as it was excessive, but the collapsable footer JS and LESS still exists.</li>
+        <li>Updated colors.</li>
+        <li>Added the primary action button.</li>
+        <li>Inline clode blocks now use <span class="color-accent">@accent</span> text color and have a 3px border-radius.</li>
+        <li>Reworked horizontal-nav links.</li>
+        <li>Now includes <a href="https://cdn.materialdesignicons.com/1.6.50/">Material Design Icons</a>.</li>
+        <li>Managed to break chips and toasts.</li>
       </ul>
       <p>The source and the download are both available on the <a href="https://github.com/1Achmed1/Cards">GitHub project page</a>. At the moment Firefox works best with Cards, largely due to how it handles buttons. I'd recommend using it instead of Chrome for the time being.</p>
     </div>
@@ -139,15 +139,15 @@
         </div>
   </div>
 
-  <div class="card" titled data-hover="false">
+  <div class="card" titled data-hover="true">
     <div class="title">
-      <span>Non-hovering Card</span>
+      <span>Hovering Card</span>
     </div>
     <div class="content">
-      <p>You can prevent a card from using the hover effect with the <code>data-hover</code> attribute. All cards should either hover or not. Don't mix cards, as it looks unprofessional and breaks up the page, removing fluidity.</p>
+      <p>You can make a card hover. The hover effect is essentially moving the card 3 pixels up and increasing its shadow. While hovering cards used to be default, Cards 2 makes non-hoving default. Cards 2 also increases hover animation speed.</p>
       <p>Example:</p>
-      <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">card</span>" <span class="attr">data-hover</span>="<span class="value">false</span>"&gt;</code></pre>
-      <p>The non-hovering card is used for cards that wouldn't natually hover, or that have content on them that would also hover. Examples include (but are not limited to) the nav drawer, heading card, footer card, and login card.</p>
+      <pre class="code"><code>&lt;<span class="tag">div</span> <span class="attr">class</span>="<span class="value">card</span>" <span class="attr">data-hover</span>="<span class="value">true</span>"&gt;</code></pre>
+      <p>The hovering card should be used rarely, in situations where bring attention to a specific card is necessary. They don't comply with the MD spec.</p>
     </div>
   </div>
   <div class="card" titled>
@@ -176,7 +176,7 @@
       <span>Toasts</span>
     </div>
     <div class="content">
-      <button class="ripple showToast" data-toast-target="sample-toast">Show me a Toast!</button>
+      <button class="ripple showToast primary-action" data-toast-target="sample-toast">Show me a Toast!</button>
       <p>Toasts are closed, or off screen, by default. To have a toast opened when the page loads, add the <code>opened</code> class to the corresponding <code>toast</code> <code>div</code> element. An example can be seen on the sample login page. Anything that will show a toast must have the <code>showToast</code> class and a <code>data-toast-toggle</code> value the same as the id of the targeted toast. The toast dismissal system is reliable but the parent of the <code>span</code> with the <code>dismissToast</code> class must be the toast <code>div</code>.</p>
     </div>
   </div>
@@ -202,7 +202,6 @@
 </div>
 
 <script type="text/javascript" src="horizontal-nav.js"></script>
-<script type="text/javascript" src="cards.js"></script>
 <script type="text/javascript">
   htmlInclude(".foot", "content/footer.html");
 </script>

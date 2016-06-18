@@ -1,14 +1,5 @@
 # Cards
 A CSS website design for Google's Material Design.
 
-## Download
-I draft releases for every version of cards, but not for every commit. Prereleases are tagged as prereleases, and despite the rapid development nature of prereleases, releases are infrequent still. You can head over to the releases section and download the latest version of Cards:
-
-[Releases (Github)](https://github.com/1Achmed1/Cards/releases)
-
-Future releases will include a zip containing Cards without the code examples and demos.
-
-## Installation
-I've put an effort in to this project, making it so that there is no compiling required to make this work. The LESS compiler is included, making CSS edits easy, and as long as your server supports HTML, Javascript, and CSS, Cards should work. Given its open source and hackable nature, I'm *not* offering support for Cards.
-
-To install Cards, download it, make edits and whatnot, and upload it to your server. No database migration is needed.
+## OS Problems: A Brief Explanation
+Cards was primarily developed on Windows 7. As a result, Cards was designed to look the way I wanted on my screen on Windows 7. Recently, I started going back to school. Everyone at my school is issued a 13-inch MacBook Air. I took the opportunity to test Cards on a new screen, and on a new OS. The problems became apparent to me then. The problem is most noticable in the header, padding becomes all fooey. I immediately started inspecting the code and discovered that Mac and Windows handle what a pixel is a little differently. I fixed the code using some javascript, all was well. Recently I used my free Windows 10 upgrade and created a dual-boot on my system. I started working on Cards soon after the install, and testing my changes, I noticed that the header was again broken. I inspected the code again, and found that the Mac fix worked on Windows 10. In Cards 1.3, I've *hopefully* fixed the problem by reversing the fix. The fix has now become default, and only reverts when Windows 7 users visit Cards.
